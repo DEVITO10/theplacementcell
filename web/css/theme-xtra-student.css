@@ -1,0 +1,38 @@
+.signin{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.signin table{
+    width: 50%;
+}
+.signin table tr td input{
+    width: 100%;
+    box-sizing: border-box;
+    height: 40px;
+    font-size: large;
+}
+.signin table tr td input[type="submit"]{
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+}
+.signin table tr td input[type="reset"]{
+    background-color: rgb(223, 217, 217);
+    border: none;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+}
+@media screen and (max-width:480px){
+    .signin table{
+        width: 90%;
+    }
+}
