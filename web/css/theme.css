@@ -14,7 +14,6 @@ body {
 	background: #fff;
 	color: #777;
 	height: 100%;
-	position: relative;
 	display: flex;
 	flex-direction: column;
 }
@@ -74,12 +73,11 @@ blockquote small::before {
 .text-muted {color: #999;}
 .wrapper {
 	padding: 30px 0;
-	min-height: 500px;
+	height: auto;
 }
 .footer {
 	background-color: #333333;
 	width: 100%;
-	bottom: 0%;
 	color: #999;
 	padding: 30px 0 60px
 }

@@ -4,7 +4,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Student Login</title>
+        <title>Student Registration</title>
         <link type="text/css" href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
         <link type="text/css" href="css/theme.css" rel="stylesheet">
@@ -41,14 +41,14 @@
         </div>
 
 
-        <div class="wrapper" style="min-height: 500px;">
+        <div class="wrapper">
             <div class="container">
                 <div class="row">
                     <div class="span3">
                         <div class="sidebar">
                             <ul class="widget widget-menu unstyled">
-                                <li class="active"><a href="#"><i class="menu-icon icon-dashboard"></i>Sign In</a></li>
-                                <li><a href="studentRegister.jsp"><i class="menu-icon icon-bullhorn"></i>Register Now</a></li>
+                                <li class="active"><a href="studentLogin.jsp"><i class="menu-icon icon-dashboard"></i>Sign In</a></li>
+                                <li><a href="#"><i class="menu-icon icon-bullhorn"></i>Register Now</a></li>
                             </ul>
                         </div>
                     </div>
@@ -57,26 +57,57 @@
                         <div class="content">
                             <div class="module">
                                 <div class="module-head">
-                                    <h1>Sign In</h1>
+                                    <h1>Register Now</h1>
                                 </div>
                                 <div class="module-body">
-                                    <form class="signin" action="" method="post">
+                                    <form class="signin" action="" method="POST">
                                         <table>
                                             <tr>
-                                                <td colspan="2">
-                                                    <label for="">Username</label>
-                                                    <input type="text" name="sign_uname" id="" required>
+                                                <td>
+                                                    <label for="">First Name</label>
+                                                    <input type="text" name="reg_fname" required>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td colspan="2"><label for="">Password</label>
-                                                <input type="password" name="sign_pwd" id="" maxlength="15" minlength="8" required></td>
+                                                <td>
+                                                    <label for="">Last Name</label>
+                                                    <input type="text" name="reg_lname" required>
+                                                </td>
                                             </tr>
                                             <tr>
-                                                <td><input type="submit" name="sign_submit" value="Submit"></td>
+                                                <td>
+                                                    <label for="">Email Address</label>
+                                                    <input type="email" name="reg_email" required>
+                                                </td>
                                             </tr>
                                             <tr>
-                                                <td><input type="reset" value="Reset"></td>
+                                                <td>
+                                                    <label for="">Contact Number</label>
+                                                    <input type="text" name="reg_phno" required>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label for="">Password (8-15 characters)</label>
+                                                    <input type="password" id="pwd" name="reg_pwd" maxlength="15" minlength="8" required>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label for="">Re-type Password (8-15 characters)</label>
+                                                    <input type="password" id="r_pwd" maxlength="15" minlength="8" required>
+                                                    <label for="" id="mismatch" style="color:red;"></label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <input type="submit" id="submit_button" name="reg_submit" value="Register"  style="cursor: not-allowed" disabled>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <input type="reset" id="reset_button" value="Reset">
+                                                </td>
                                             </tr>
                                         </table>
                                     </form>
@@ -101,5 +132,23 @@
         <script src="scripts/flot/jquery.flot.resize.js" type="text/javascript"></script>
         <script src="scripts/datatables/jquery.dataTables.js" type="text/javascript"></script>
         <script src="scripts/common.js" type="text/javascript"></script>
-      
+        <script>
+            document.getElementById("r_pwd").addEventListener("input",function(){
+                if(document.getElementById("pwd").value != document.getElementById("r_pwd").value){
+                    document.getElementById("mismatch").innerText="Password Mismatch";
+                    document.getElementById("submit_button").disabled = "true";
+                    document.getElementById("submit_button").style.cursor = "not-allowed";
+                }
+                else{
+                    document.getElementById("mismatch").innerText="";
+                    document.getElementById("submit_button").disabled = "false";
+                    document.getElementById("submit_button").style.cursor = "pointer";
+                }
+            });
+            document.getElementById("reset_button").addEventListener("click",function(){
+                document.getElementById("mismatch").innerText="";
+                document.getElementById("submit_button").disabled = "false";
+                document.getElementById("submit_button").style.cursor = "pointer";
+            });
+        </script>
     </body>

@@ -23,7 +23,7 @@
                     <div class="nav-collapse collapse navbar-inverse-collapse">
                         <ul class="nav pull-right">
                             <li id="support"><a href="#"><span>Support</span></a></li>
-                            <li class="nav-user dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" style="pointer-events: none; cursor:no-drop;">
+                            <li class="nav-user dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" style="pointer-events: none; cursor:not-allowed;">
                                 <img src="images/user.png" class="nav-avatar" />
                                 <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
@@ -57,29 +57,59 @@
                         <div class="content">
                             <div class="module">
                                 <div class="module-head">
-                                    <h1>Sign In</h1>
+                                    <h1>Register Now</h1>
                                 </div>
                                 <div class="module-body">
-                                    <form class="signin" action="" method="post">
+                                    <form class="signin" action="" method="POST">
                                         <table>
                                             <tr>
-                                                <td colspan="2">
-                                                    <label for="">Username</label>
-                                                    <input type="text" name="" id="">
+                                                <td>
+                                                    <label for="">First Name</label>
+                                                    <input type="text" name="reg_fname" required>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td colspan="2"><label for="">Password</label>
-                                                <input type="password" name="" id=""></td>
+                                                <td>
+                                                    <label for="">Last Name</label>
+                                                    <input type="text" name="reg_lname" required>
+                                                </td>
                                             </tr>
                                             <tr>
-                                                <td><input type="submit" value="Submit"></td>
+                                                <td>
+                                                    <label for="">Email Address</label>
+                                                    <input type="email" name="reg_email" required>
+                                                </td>
                                             </tr>
                                             <tr>
-                                                <td><input type="reset" value="Reset"></td>
+                                                <td>
+                                                    <label for="">Contact Number</label>
+                                                    <input type="text" name="reg_phno" required>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label for="">Password (8-15 characters)</label>
+                                                    <input type="password" id="pwd" name="reg_pwd" maxlength="15" minlength="8" required>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label for="">Re-type Password (8-15 characters)</label>
+                                                    <input type="password" id="r_pwd" maxlength="15" minlength="8" required>
+                                                    <label for="" id="mismatch" style="color:red;"></label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <input type="submit" id="submit_button" name="reg_submit" value="Register"  style="cursor: not-allowed" disabled>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <input type="reset" id="reset_button" value="Reset">
+                                                </td>
                                             </tr>
                                         </table>
-                                        
                                     </form>
                                 </div>
                             </div>
@@ -89,11 +119,7 @@
             </div>
         </div>
         <!--/.wrapper-->
-        <div class="footer">
-            <div class="container">
-                <b class="copyright">&copy; 2014 Edmin - EGrappler.com </b>All rights reserved.
-            </div>
-        </div>
+        <%@ include file="includes/studentDashboardFooter.jsp" %>
         <script src="scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
         <script src="scripts/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
         <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
@@ -102,5 +128,23 @@
         <script src="scripts/flot/jquery.flot.resize.js" type="text/javascript"></script>
         <script src="scripts/datatables/jquery.dataTables.js" type="text/javascript"></script>
         <script src="scripts/common.js" type="text/javascript"></script>
-      
+        <script>
+            document.getElementById("r_pwd").addEventListener("input",function(){
+                if(document.getElementById("pwd").value != document.getElementById("r_pwd").value){
+                    document.getElementById("mismatch").innerText="Password Mismatch";
+                    document.getElementById("submit_button").disabled = "true";
+                    document.getElementById("submit_button").style.cursor = "not-allowed";
+                }
+                else{
+                    document.getElementById("mismatch").innerText="";
+                    document.getElementById("submit_button").disabled = "false";
+                    document.getElementById("submit_button").style.cursor = "pointer";
+                }
+            });
+            document.getElementById("reset_button").addEventListener("click",function(){
+                document.getElementById("mismatch").innerText="";
+                document.getElementById("submit_button").disabled = "true";
+                document.getElementById("submit_button").style.cursor = "not-allowed";
+            });
+        </script>
     </body>

@@ -23,7 +23,7 @@
                     <div class="nav-collapse collapse navbar-inverse-collapse">
                         <ul class="nav pull-right">
                             <li id="support"><a href="#"><span>Support</span></a></li>
-                            <li class="nav-user dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" style="pointer-events: none; cursor:no-drop;">
+                            <li class="nav-user dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" style="pointer-events: none; cursor:not-allowed;">
                                 <img src="images/user.png" class="nav-avatar" />
                                 <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
@@ -41,7 +41,7 @@
         </div>
 
 
-        <div class="wrapper">
+        <div class="wrapper"  style="min-height: 500px;">
             <div class="container">
                 <div class="row">
                     <div class="span3">
