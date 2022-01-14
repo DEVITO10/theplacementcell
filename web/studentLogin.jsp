@@ -36,7 +36,7 @@
                                     <h1>Sign In</h1>
                                 </div>
                                 <div class="module-body">
-                                    <form class="signin" action="" method="post">
+                                    <form class="signin" action="studentLoginServlet" method="post">
                                         <table>
                                             <tr>
                                                 <td colspan="2">

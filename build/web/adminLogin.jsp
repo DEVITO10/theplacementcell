@@ -59,17 +59,17 @@
                                     <h1>Sign In</h1>
                                 </div>
                                 <div class="module-body">
-                                    <form class="signin" action="" method="post">
+                                    <form class="signin" action="adminLoginServlet" method="post">
                                         <table>
                                             <tr>
                                                 <td colspan="2">
                                                     <label for="">Username</label>
-                                                    <input type="text" name="" id="">
+                                                    <input type="text" name="sign_admin_uname" id="" required>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td colspan="2"><label for="">Password</label>
-                                                <input type="password" name="" id=""></td>
+                                                <input type="password" name="sign_admin_pwd" id="" required></td>
                                             </tr>
                                             <tr>
                                                 <td><input type="submit" value="Submit"></td>
