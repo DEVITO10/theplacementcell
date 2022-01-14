@@ -6,7 +6,7 @@
             <div class="nav-collapse collapse navbar-inverse-collapse">
                 <ul class="nav pull-right">
                     <li id="support"><a href="#"><span>Support</span></a></li>
-                    <li class="nav-user dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" style="pointer-events: none; cursor:not-allowed;">
+                    <li class="nav-user dropdown" style="cursor: not-allowed;"><a href="#" class="dropdown-toggle" data-toggle="dropdown" style="pointer-events: none;">
                         <img src="images/user.png" class="nav-avatar" />
                         <b class="caret"></b></a>
                         <ul class="dropdown-menu">
