@@ -48,7 +48,6 @@
                         <div class="sidebar">
                             <ul class="widget widget-menu unstyled">
                                 <li class="active"><a href="#"><i class="menu-icon icon-dashboard"></i>Sign In</a></li>
-                                <li><a href="studentRegister.jsp"><i class="menu-icon icon-bullhorn"></i>Register Now</a></li>
                             </ul>
                         </div>
                     </div>
