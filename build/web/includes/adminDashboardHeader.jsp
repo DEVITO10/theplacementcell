@@ -11,7 +11,7 @@
                         <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="adminProfile.jsp">My Profile</a></li>
-                            <li><a href=><form action="logoutAdmin"><input type="submit" value="Logout" style="border:none; outline:none; background:none;"></form></a></li>
+                            <li><a href="adminLogout.jsp">Logout</a></li>
                         </ul>
                     </li>
                 </ul>
