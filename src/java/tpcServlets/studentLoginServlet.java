@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import tpcPOJOClasses.studentLoginPOJO;
+import tpcPOJOClasses.studentLoginBean;
 import tpcImplementation.validateStudent;
 
 import javax.servlet.http.HttpSession;
@@ -20,13 +20,13 @@ public class studentLoginServlet extends HttpServlet {
             throws ServletException, IOException {
         String username = request.getParameter("sign_uname");
         String password = request.getParameter("sign_pwd");
-        studentLoginPOJO login = new studentLoginPOJO();
+        studentLoginBean login = new studentLoginBean();
         login.setStudUname(username);
         login.setStudPwd(password);
         try {
             if(loginStud.validate(login)) {
                 HttpSession session = request.getSession();
-                session.setAttribute("username",username);
+                session.setAttribute("studuname",username);
                 response.sendRedirect("studentDashboard.jsp");
             } else {
                 response.sendRedirect("invalidStudentLogin.jsp");

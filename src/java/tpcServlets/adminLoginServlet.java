@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import tpcImplementation.validateAdmin;
-import tpcPOJOClasses.adminLoginPOJO;
+import tpcPOJOClasses.adminLoginBean;
 
 public class adminLoginServlet extends HttpServlet {
     private validateAdmin loginAdmin;
@@ -20,16 +20,16 @@ public class adminLoginServlet extends HttpServlet {
             throws ServletException, IOException {
         String username = request.getParameter("sign_admin_uname");
         String password = request.getParameter("sign_admin_pwd");
-        adminLoginPOJO login = new adminLoginPOJO();
+        adminLoginBean login = new adminLoginBean();
         login.setAdminUname(username);
         login.setAdminPwd(password);
         try {
             if(loginAdmin.validate(login)) {
                 HttpSession session = request.getSession();
-                session.setAttribute("username",username);
-                response.sendRedirect("studentDashboard.jsp");
+                session.setAttribute("adminuname",username);
+                response.sendRedirect("adminDashboard.jsp");
             } else {
-                response.sendRedirect("invalidStudentLogin.jsp");
+                response.sendRedirect("invalidAdminLogin.jsp");
                 
             }
         } catch (ClassNotFoundException e) {

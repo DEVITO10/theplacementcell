@@ -271,6 +271,7 @@ ul.icons li [class*=" icon-"] {
 }
 /*  Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
     readers do not read off random characters that represent icons */
+.icon-user-graduate:before        { content: "\f501"; }
 .icon-glass:before                { content: "\f000"; }
 .icon-music:before                { content: "\f001"; }
 .icon-search:before               { content: "\f002"; }
@@ -515,6 +516,7 @@ ul.icons li [class*=" icon-"] {
 .icon-beer:before                 { content: "\f0fc"; }
 .icon-h-sign:before               { content: "\f0fd"; }
 .icon-plus-sign-alt:before        { content: "\f0fe"; }
+.icon-chalkboard-teacher:before   { content: "\f51c"}
 
 .icon-double-angle-left:before    { content: "\f100"; }
 .icon-double-angle-right:before   { content: "\f101"; }

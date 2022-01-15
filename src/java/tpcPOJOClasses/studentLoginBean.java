@@ -2,7 +2,7 @@ package tpcPOJOClasses;
 
 import java.io.Serializable;
 
-public class studentLoginPOJO implements Serializable{
+public class studentLoginBean implements Serializable{
     private String studUname = null;
     private String studPwd = null;
 

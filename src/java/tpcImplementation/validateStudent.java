@@ -5,12 +5,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import tpcPOJOClasses.studentLoginPOJO;
+import tpcPOJOClasses.studentLoginBean;
 import tpcInterfaces.StudentSQLQuery;
 import tpcDaoImplementations.dbConnectionImplementation;
 
 public class validateStudent {
-    public boolean validate(studentLoginPOJO login) throws ClassNotFoundException {
+    public boolean validate(studentLoginBean login) throws ClassNotFoundException {
         boolean status = false;
         Connection conn = null;
         try{

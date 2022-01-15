@@ -7,10 +7,10 @@ import java.sql.SQLException;
 
 import tpcDaoImplementations.dbConnectionImplementation;
 import tpcInterfaces.TeacherSQLQuery;
-import tpcPOJOClasses.teacherLoginPOJO;
+import tpcPOJOClasses.teacherLoginBean;
 
 public class validateTeacher {
-    public boolean validate(teacherLoginPOJO login) throws ClassNotFoundException {
+    public boolean validate(teacherLoginBean login) throws ClassNotFoundException {
         boolean status = false;
         Connection conn = null;
         try{
