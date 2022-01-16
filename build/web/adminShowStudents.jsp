@@ -47,7 +47,7 @@
                         <div class="sidebar">
                             <ul class="widget widget-menu unstyled">
                                 <li><a href="adminDashboard.jsp"><i class="menu-icon icon-dashboard"></i>Dashboard</a></li>
-                                <li><a href="#"><i class="menu-icon icon-building"></i>Companies</a></li>
+                                <li><a href="adminCompanyDashboard.jsp"><i class="menu-icon icon-building"></i>Companies</a></li>
                                 <li><a href="#">&nbsp;<i class="menu-icon"><i class="fa fa-user-graduate"></i></i>Students</a></li>
                                 <li><a href="adminShowTeachers.jsp"><i class="menu-icon"><i class="fa fa-chalkboard-teacher"></i></i>Teachers</a></li>
                                 <li><a href="adminProfile.jsp"><i class="menu-icon icon-user"></i>My Profile</a></li>
@@ -65,7 +65,7 @@
                                     <h1>Student Full Details</h1>
                                 </div>
                                 <div class="module-body">
-                                    Empty Now
+                                    Under building...access after some time;
                                 </div>
                             </div>
 

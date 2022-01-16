@@ -20,7 +20,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Show Students - Admin
+        <title>Remove Company - Admin
         </title>
         <link type="text/css" href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
@@ -48,7 +48,7 @@
                             <ul class="widget widget-menu unstyled">
                                 <li><a href="adminDashboard.jsp"><i class="menu-icon icon-dashboard"></i>Dashboard</a></li>
                                 <li><a href="adminCompanyDashboard.jsp"><i class="menu-icon icon-building"></i>Companies</a></li>
-                                <li><a href="#">&nbsp;<i class="menu-icon"><i class="fa fa-user-graduate"></i></i>Students</a></li>
+                                <li><a href="adminShowStudents.jsp">&nbsp;<i class="menu-icon"><i class="fa fa-user-graduate"></i></i>Students</a></li>
                                 <li><a href="adminShowTeachers.jsp"><i class="menu-icon"><i class="fa fa-chalkboard-teacher"></i></i>Teachers</a></li>
                                 <li><a href="adminProfile.jsp"><i class="menu-icon icon-user"></i>My Profile</a></li>
                             </ul>
@@ -62,23 +62,16 @@
                         <div class="content">
                             <div class="module">
                                 <div class="module-head">
-                                    <h1>Student Full Details</h1>
-                                </div>
-                                <div class="module-body">
-                                    Under building...access after some time;
-                                </div>
-                            </div>
-
-                            <div class="module">
-                                <div class="module-head">
-                                    <h3>Student</h3>
+                                    <h1>Companies</h1>
                                 </div>
                                 <div class="module-body table">
                                     <table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table table-bordered table-striped	 display" width="100%">
                                         <thead>
                                             <tr>
+                                                <th>Logo</th>
                                                 <th>Name</th>
-                                                <th>Email Address</th>
+                                                <th>Job Description</th>
+                                                <th>Remove</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -86,17 +79,23 @@
                                                 try{
                                                         Connection connection=null;
                                                         connection =  dbConnectionImplementation.getConnection();
-                                                        PreparedStatement preparedStatement=connection.prepareStatement(AdminSQLQuery.showAllStudents);
+                                                        PreparedStatement preparedStatement=connection.prepareStatement(AdminSQLQuery.showCompanies);
                                                         ResultSet resultSet = null;
                                                         resultSet = preparedStatement.executeQuery();
                                                         while(resultSet.next()){
                                             %>
                                                 <tr>
                                                     <td>
+                                                        <%= resultSet.getString("logo")%>
+                                                    </td>
+                                                    <td>
                                                         <%= resultSet.getString("name")%>
                                                     </td>
                                                     <td>
-                                                        <%= resultSet.getString("email")%>
+                                                        <%= resultSet.getString("job_desc")%>
+                                                    </td>
+                                                    <td>
+                                                        <a href="removeCompanyServlet?n=<%= resultSet.getString("name")%>&j=<%= resultSet.getString("job_desc")%>" style="color:red">Remove</a>
                                                     </td>
                                                 </tr>
                                             <% 

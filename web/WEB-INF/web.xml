@@ -12,6 +12,18 @@
         <servlet-name>teacherLoginServlet</servlet-name>
         <servlet-class>tpcServlets.teacherLoginServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>removeCompany</servlet-name>
+        <servlet-class>tpcServlets.removeCompanyServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>removeCompanyServlet</servlet-name>
+        <servlet-class>tpcServlets.removeCompanyServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>addCompanyServlet</servlet-name>
+        <servlet-class>tpcServlets.addCompanyServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>studentLoginServlet</servlet-name>
         <url-pattern>/studentLoginServlet</url-pattern>
@@ -23,6 +35,18 @@
     <servlet-mapping>
         <servlet-name>teacherLoginServlet</servlet-name>
         <url-pattern>/teacherLoginServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>removeCompany</servlet-name>
+        <url-pattern>/removeCompany</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>removeCompanyServlet</servlet-name>
+        <url-pattern>/removeCompanyServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>addCompanyServlet</servlet-name>
+        <url-pattern>/addCompanyServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

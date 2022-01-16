@@ -20,11 +20,11 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Show Students - Admin
-        </title>
+        <title>Companies</title>
         <link type="text/css" href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
         <link type="text/css" href="css/theme.css" rel="stylesheet">
+        <link type="text/css" href="css/theme-xtra-student.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="css/index/animate.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
@@ -38,8 +38,6 @@
         
         <%@ include file="includes/adminDashboardHeader.jsp" %>
         
-        
-        
         <div class="wrapper" style="background-color: #EEEEEE;">
             <div class="container">
                 <div class="row">
@@ -47,8 +45,8 @@
                         <div class="sidebar">
                             <ul class="widget widget-menu unstyled">
                                 <li><a href="adminDashboard.jsp"><i class="menu-icon icon-dashboard"></i>Dashboard</a></li>
-                                <li><a href="adminCompanyDashboard.jsp"><i class="menu-icon icon-building"></i>Companies</a></li>
-                                <li><a href="#">&nbsp;<i class="menu-icon"><i class="fa fa-user-graduate"></i></i>Students</a></li>
+                                <li><a href="#"><i class="menu-icon icon-building"></i>Companies</a></li>
+                                <li><a href="adminShowStudents.jsp">&nbsp;<i class="menu-icon"><i class="fa fa-user-graduate"></i></i>Students</a></li>
                                 <li><a href="adminShowTeachers.jsp"><i class="menu-icon"><i class="fa fa-chalkboard-teacher"></i></i>Teachers</a></li>
                                 <li><a href="adminProfile.jsp"><i class="menu-icon icon-user"></i>My Profile</a></li>
                             </ul>
@@ -57,60 +55,64 @@
                         <!--/.sidebar-->
                     </div>
                     <!--/.span3-->
-
                     <div class="span9">
                         <div class="content">
                             <div class="module">
                                 <div class="module-head">
-                                    <h1>Student Full Details</h1>
+                                    <h1>Companies</h1>
                                 </div>
-                                <div class="module-body">
-                                    Under building...access after some time;
+                                <div class="module-body" style="overflow: auto">
+                                    <div class="span8 show-companies" style="display:flex; box-sizing: border-box; overflow: auto;">
+                                    <%
+                                        try{
+                                                int count = 0;
+                                                Connection connection=null;
+                                                connection =  dbConnectionImplementation.getConnection();
+                                                Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+                                                ResultSet resultSet = statement.executeQuery(AdminSQLQuery.showCompanies);
+                                                if(resultSet.next()){
+                                                    resultSet.beforeFirst();
+                                                    while(resultSet.next() && count<4){
+                                    %>
+                                        <div class="span2" style="margin: 5px; border: 1px solid grey; text-align: center; padding: 2px; border-radius: 5px;">
+                                            <img src='images/Logo/logo.png' alt="company logo" height="50px" width="auto"><br>
+                                            <span style="font-size: 20px;"><%= resultSet.getString("name") %></span><br>
+                                            <span style="font-size: 10px;"><%= resultSet.getString("job_desc") %></span>
+                                        </div>
+                                    <% 
+                                                        if(count == 3){
+                                                            %>
+                                                            <div class="span1" style="margin: 5px; display: flex; flex-direction:column;justify-content: center; align-items: center; border: 1px solid grey; padding: 2px; border-radius: 5px">
+                                                                <i class="icon-angle-right" style="font-size: 50px;"></i><br>View More
+                                                            </div>
+                                                            <%
+                                                        }
+                                                        count+=1;
+                                                    }
+                                                }
+                                                else{
+                                                %>
+                                                    <h3>No Companies Available.</h3>
+                                                <%
+                                                }
+                                        } 
+                                        catch (Exception e) {
+                                            e.printStackTrace();
+                                        }
+                                    %>
+                                    </div>
                                 </div>
                             </div>
-
-                            <div class="module">
-                                <div class="module-head">
-                                    <h3>Student</h3>
+                            <div class="btn-controls">
+                                <div class="btn-box-row row-fluid">
+                                    <a href="adminAddCompany.jsp" class="btn-box big span4"><i class="icon-plus"></i><b>Add</b></a>
+                                    <a href="adminRemoveCompany.jsp" class="btn-box big span4"><i class="icon-minus"></i><b>Remove</b></a>
+                                    <a href="adminViewCompanyAll.jsp" class="btn-box big span4"><i class="icon-eye-open"></i><b>View</b></a>
                                 </div>
-                                <div class="module-body table">
-                                    <table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table table-bordered table-striped	 display" width="100%">
-                                        <thead>
-                                            <tr>
-                                                <th>Name</th>
-                                                <th>Email Address</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <%
-                                                try{
-                                                        Connection connection=null;
-                                                        connection =  dbConnectionImplementation.getConnection();
-                                                        PreparedStatement preparedStatement=connection.prepareStatement(AdminSQLQuery.showAllStudents);
-                                                        ResultSet resultSet = null;
-                                                        resultSet = preparedStatement.executeQuery();
-                                                        while(resultSet.next()){
-                                            %>
-                                                <tr>
-                                                    <td>
-                                                        <%= resultSet.getString("name")%>
-                                                    </td>
-                                                    <td>
-                                                        <%= resultSet.getString("email")%>
-                                                    </td>
-                                                </tr>
-                                            <% 
-                                                        }
-                                                } 
-                                                catch (Exception e) {
-                                                    e.printStackTrace();
-                                                }
-                                            %>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div><!--/.module-->
+                            </div>
+                            <!--/#btn-controls-->
                         </div>
+                        <!--/.content-->
                     </div>
                     <!--/.span9-->
                 </div>
@@ -118,6 +120,7 @@
             <!--/.container-->
         </div>
         <!--/.wrapper-->
+        
         
         <%@ include file="includes/adminDashboardFooter.jsp" %>
         

@@ -55,7 +55,7 @@
                         <div class="sidebar">
                             <ul class="widget widget-menu unstyled">
                                 <li><a href="#"><i class="menu-icon icon-dashboard"></i>Dashboard</a></li>
-                                <li><a href="#"><i class="menu-icon icon-building"></i>Companies</a></li>
+                                <li><a href="adminCompanyDashboard.jsp"><i class="menu-icon icon-building"></i>Companies</a></li>
                                 <li><a href="adminShowStudents.jsp">&nbsp;<i class="menu-icon"><i class="fa fa-user-graduate"></i></i>Students</a></li>
                                 <li><a href="adminShowTeachers.jsp"><i class="menu-icon"><i class="fa fa-chalkboard-teacher"></i></i>Teachers</a></li>
                                 <li><a href="adminProfile.jsp"><i class="menu-icon icon-user"></i>My Profile</a></li>
@@ -70,7 +70,7 @@
                             <div class="btn-controls">
                                 <div class="btn-box-row row-fluid">
                                     <a href="adminProfile.jsp" class="btn-box big span6"><i class="icon-user"></i><b style="color:red"><%= resultSet.getString("name") %></b><p class="text-muted">My Profile</p></a>
-                                    <a href="#" class="btn-box big span6"><i class="icon-building"></i><b>Companies</b><p class="text-muted">Show Companies</p></a>
+                                    <a href="adminCompanyDashboard.jsp" class="btn-box big span6"><i class="icon-building"></i><b>Companies</b><p class="text-muted">Show Companies</p></a>
                                     <a href="adminShowTeachers.jsp" class="btn-box big span6" style="margin-left: 0px;"><i class="icon-chalkboard-teacher"></i><b>Teacher</b><p class="text-muted">Show Teachers</p></a>
                                     <a href="adminShowStudents.jsp" class="btn-box big span6"><i class="fa fa-user-graduate"></i><b>Students</b><p class="text-muted">Show Students</p>
                                     </a>

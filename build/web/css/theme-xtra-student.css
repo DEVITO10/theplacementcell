@@ -1,19 +1,19 @@
-.signin{
+.signin, .add-company{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-.signin table{
+.signin table, .add-company table{
     width: 50%;
 }
-.signin table tr td input{
+.signin table tr td input, .add-company table tr td input{
     width: 100%;
     box-sizing: border-box;
     height: 40px;
     font-size: large;
 }
-.signin table tr td input[type="submit"]{
+.signin table tr td input[type="submit"], .add-company table tr td input[type="submit"]{
     background-color: #4CAF50;
     border: none;
     color: white;
@@ -22,7 +22,7 @@
     display: inline-block;
     cursor: pointer;
 }
-.signin table tr td input[type="reset"]{
+.signin table tr td input[type="reset"], .add-company table tr td input[type="reset"]{
     background-color: rgb(223, 217, 217);
     border: none;
     color: black;

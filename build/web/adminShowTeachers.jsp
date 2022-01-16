@@ -20,7 +20,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Show Students - Admin
+        <title>Show Teachers - Admin
         </title>
         <link type="text/css" href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
@@ -47,7 +47,7 @@
                         <div class="sidebar">
                             <ul class="widget widget-menu unstyled">
                                 <li><a href="adminDashboard.jsp"><i class="menu-icon icon-dashboard"></i>Dashboard</a></li>
-                                <li><a href="#"><i class="menu-icon icon-building"></i>Companies</a></li>
+                                <li><a href="adminCompanyDashboard.jsp"><i class="menu-icon icon-building"></i>Companies</a></li>
                                 <li><a href="adminShowStudents.jsp">&nbsp;<i class="menu-icon"><i class="fa fa-user-graduate"></i></i>Students</a></li>
                                 <li><a href="#"><i class="menu-icon"><i class="fa fa-chalkboard-teacher"></i></i>Teachers</a></li>
                                 <li><a href="adminProfile.jsp"><i class="menu-icon icon-user"></i>My Profile</a></li>

@@ -20,11 +20,12 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Show Students - Admin
+        <title>Add Company - Admin
         </title>
         <link type="text/css" href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
         <link type="text/css" href="css/theme.css" rel="stylesheet">
+        <link type="text/css" href="css/theme-xtra-student.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="css/index/animate.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
@@ -48,7 +49,7 @@
                             <ul class="widget widget-menu unstyled">
                                 <li><a href="adminDashboard.jsp"><i class="menu-icon icon-dashboard"></i>Dashboard</a></li>
                                 <li><a href="adminCompanyDashboard.jsp"><i class="menu-icon icon-building"></i>Companies</a></li>
-                                <li><a href="#">&nbsp;<i class="menu-icon"><i class="fa fa-user-graduate"></i></i>Students</a></li>
+                                <li><a href="adminShowStudents.jsp">&nbsp;<i class="menu-icon"><i class="fa fa-user-graduate"></i></i>Students</a></li>
                                 <li><a href="adminShowTeachers.jsp"><i class="menu-icon"><i class="fa fa-chalkboard-teacher"></i></i>Teachers</a></li>
                                 <li><a href="adminProfile.jsp"><i class="menu-icon icon-user"></i>My Profile</a></li>
                             </ul>
@@ -62,52 +63,67 @@
                         <div class="content">
                             <div class="module">
                                 <div class="module-head">
-                                    <h1>Student Full Details</h1>
+                                    <h1>Add Company</h1>
                                 </div>
                                 <div class="module-body">
-                                    Under building...access after some time;
-                                </div>
-                            </div>
-
-                            <div class="module">
-                                <div class="module-head">
-                                    <h3>Student</h3>
-                                </div>
-                                <div class="module-body table">
-                                    <table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table table-bordered table-striped	 display" width="100%">
-                                        <thead>
+                                    <form class="add-company" action="addCompanyServlet" method="post">
+                                        <table>
                                             <tr>
-                                                <th>Name</th>
-                                                <th>Email Address</th>
+                                                <td>
+                                                    <label for="" style="font-size: large;">Company Name</label>
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="comp_name" id="" required>
+                                                </td>
                                             </tr>
-                                        </thead>
-                                        <tbody>
-                                            <%
-                                                try{
-                                                        Connection connection=null;
-                                                        connection =  dbConnectionImplementation.getConnection();
-                                                        PreparedStatement preparedStatement=connection.prepareStatement(AdminSQLQuery.showAllStudents);
-                                                        ResultSet resultSet = null;
-                                                        resultSet = preparedStatement.executeQuery();
-                                                        while(resultSet.next()){
-                                            %>
-                                                <tr>
-                                                    <td>
-                                                        <%= resultSet.getString("name")%>
-                                                    </td>
-                                                    <td>
-                                                        <%= resultSet.getString("email")%>
-                                                    </td>
-                                                </tr>
-                                            <% 
-                                                        }
-                                                } 
-                                                catch (Exception e) {
-                                                    e.printStackTrace();
-                                                }
-                                            %>
-                                        </tbody>
-                                    </table>
+                                            <tr>
+                                                <td>
+                                                    <label for="" style="font-size: large;">Company Logo (link)</label>
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="comp_logo" id="" required>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label for="" style="font-size: large;">Exam Name</label>
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="comp_exam_name" id="" required>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label for="" style="font-size: large;">Package</label>
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="comp_package" id="" required>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label for="" style="font-size: large;">Branch</label>
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="comp_branch" id="" required>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label for="" style="font-size: large;">Job Description</label>
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="comp_job_desc" id="" required>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2"><input type="submit" value="Submit"></td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2"><input type="reset" value="Reset"></td>
+                                            </tr>
+                                        </table>
+                                    </form>          
                                 </div>
                             </div><!--/.module-->
                         </div>
