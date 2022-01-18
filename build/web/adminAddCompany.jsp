@@ -86,14 +86,6 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <label for="" style="font-size: large;">Exam Name</label>
-                                                </td>
-                                                <td>
-                                                    <input type="text" name="comp_exam_name" id="" required>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
                                                     <label for="" style="font-size: large;">Package</label>
                                                 </td>
                                                 <td>

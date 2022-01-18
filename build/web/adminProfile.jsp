@@ -39,7 +39,7 @@
         
         
         
-        <div class="wrapper" style="background-color: #EEEEEE;">
+        <div class="wrapper" style="background-color: #EEEEEE; min-height: 500px">
             <div class="container">
                 <div class="row">
                     <div class="span3">
@@ -87,18 +87,19 @@
                         </div>
                     </div>
                     <!--/.span9-->
+                    <% 
+                                }
+                        } 
+                        catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    %>
                 </div>
             </div>
             <!--/.container-->
         </div>
         <!--/.wrapper-->
-        <% 
-                    }
-            } 
-            catch (Exception e) {
-                e.printStackTrace();
-            }
-        %>
+        
         
         <%@ include file="includes/adminDashboardFooter.jsp" %>
         

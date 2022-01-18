@@ -2,8 +2,8 @@
 <%@page import="javax.servlet.http.HttpSession"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-    if((String)session.getAttribute("adminuname")==null){
-        %><jsp:forward page="adminLogin.jsp" /><%
+    if((String)session.getAttribute("teachuname")==null){
+        %><jsp:forward page="teacherLogin.jsp" /><%
     }
 %>
 <%@page import="java.sql.PreparedStatement"%>
@@ -12,7 +12,7 @@
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="tpcDaoImplementations.dbConnectionImplementation"%>
-<%@page import="tpcInterfaces.AdminSQLQuery"%>
+<%@page import="tpcInterfaces.TeacherSQLQuery"%>
 <%@page import="javax.servlet.http.HttpServletRequest"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +20,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>My Profile - Admin</title>
+        <title>Teacher Dashboard</title>
         <link type="text/css" href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
         <link type="text/css" href="css/theme.css" rel="stylesheet">
@@ -35,71 +35,61 @@
     </head>
     <body>
         
-        <%@ include file="includes/adminDashboardHeader.jsp" %>
+        <%@ include file="includes/teacherDashboardHeader.jsp" %>
         
+        <%
+            try{
+                    Connection connection=null;
+                    connection =  dbConnectionImplementation.getConnection();
+                    PreparedStatement preparedStatement=connection.prepareStatement(TeacherSQLQuery.getTeacherNameQuery);
+                    preparedStatement.setString(1, (String)session.getAttribute("teachuname"));
+                    ResultSet resultSet = null;
+                    resultSet = preparedStatement.executeQuery();
+                    while(resultSet.next()){
+        %>
         
-        
-        <div class="wrapper" style="background-color: #EEEEEE; min-height: 500px">
+        <div class="wrapper" style="background-color: #EEEEEE; min-height: 500px;">
             <div class="container">
                 <div class="row">
                     <div class="span3">
                         <div class="sidebar">
                             <ul class="widget widget-menu unstyled">
-                                <li><a href="adminDashboard.jsp"><i class="menu-icon icon-dashboard"></i>Dashboard</a></li>
-                                <li><a href="adminCompanyDashboard.jsp"><i class="menu-icon icon-building"></i>Companies</a></li>
-                                <li><a href="adminShowStudents.jsp">&nbsp;<i class="menu-icon"><i class="fa fa-user-graduate"></i></i>Students</a></li>
-                                <li><a href="adminShowTeachers.jsp"><i class="menu-icon"><i class="fa fa-chalkboard-teacher"></i></i>Teachers</a></li>
-                                <li><a href="#"><i class="menu-icon icon-user"></i>My Profile</a></li>
+                                <li><a href="#"><i class="menu-icon icon-dashboard"></i>Dashboard</a></li>
+                                <li><a href="teacherShowCompany.jsp"><i class="menu-icon icon-building"></i>Companies</a></li>
+                                <li><a href="teacherShowStudents.jsp">&nbsp;<i class="menu-icon"><i class="fa fa-user-graduate"></i></i>Students</a></li>
+                                <li><a href="teacherProfile.jsp"><i class="menu-icon icon-user"></i>My Profile</a></li>
                             </ul>
                             <!--/.widget-nav-->
                         </div>
                         <!--/.sidebar-->
                     </div>
                     <!--/.span3-->
-
-                    <%
-                        try{
-                                Connection connection=null;
-                                connection =  dbConnectionImplementation.getConnection();
-                                PreparedStatement preparedStatement=connection.prepareStatement(AdminSQLQuery.getAdminDetails);
-                                preparedStatement.setString(1, (String)session.getAttribute("adminuname"));
-                                ResultSet resultSet = null;
-                                resultSet = preparedStatement.executeQuery();
-                                while(resultSet.next()){
-                    %>
                     <div class="span9">
                         <div class="content">
-                            <div class="module">
-                                <div class="module-head">
-                                    <h1>My Profile Details</h1>
-                                </div>
-                                <div class="module-body">
-                                    <label>Name</label>
-                                    <h2><%= resultSet.getString("name")%></h2>
-                                    <label>Email Address</label>
-                                    <h2><%= resultSet.getString("email")%></h2>
-                                    <label>Contact No.</label>
-                                    <h2><%= resultSet.getString("phno")%></h2>
-                                    <label>Address</label>
-                                    <h2><%= resultSet.getString("address")%></h2>
+                            <div class="btn-controls">
+                                <div class="btn-box-row row-fluid">
+                                    <a href="teacherShowCompany.jsp" class="btn-box big span6"><i class="icon-building"></i><b>Companies</b><p class="text-muted">Show Companies</p></a>
+                                    <a href="teacherShowStudents.jsp" class="btn-box big span6"><i class="fa fa-user-graduate"></i><b>Students</b><p class="text-muted">Show Students</p></a>
+                                    <a href="teacherProfile.jsp" class="btn-box big span6" style="margin-left: 0px;"><i class="icon-user"></i><b style="color:red"><%= resultSet.getString("name") %></b><p class="text-muted">My Profile</p></a>
                                 </div>
                             </div>
+                            <!--/#btn-controls-->
                         </div>
+                        <!--/.content-->
                     </div>
                     <!--/.span9-->
-                    <% 
-                                }
-                        } 
-                        catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    %>
                 </div>
             </div>
             <!--/.container-->
         </div>
         <!--/.wrapper-->
-        
+        <% 
+                    }
+            } 
+            catch (Exception e) {
+                e.printStackTrace();
+            }
+        %>
         
         <%@ include file="includes/adminDashboardFooter.jsp" %>
         

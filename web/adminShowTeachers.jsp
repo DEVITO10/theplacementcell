@@ -40,7 +40,7 @@
         
         
         
-        <div class="wrapper" style="background-color: #EEEEEE;">
+        <div class="wrapper" style="background-color: #EEEEEE; min-height: 500px;">
             <div class="container">
                 <div class="row">
                     <div class="span3">
@@ -71,7 +71,7 @@
 
                             <div class="module">
                                 <div class="module-head">
-                                    <h3>Student</h3>
+                                    <h3>Teachers</h3>
                                 </div>
                                 <div class="module-body table">
                                     <table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table table-bordered table-striped	 display" width="100%">
@@ -79,6 +79,7 @@
                                             <tr>
                                                 <th>Name</th>
                                                 <th>Email Address</th>
+                                                <th>Department</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -97,6 +98,9 @@
                                                     </td>
                                                     <td>
                                                         <%= resultSet.getString("email")%>
+                                                    </td>
+                                                    <td>
+                                                        <%= resultSet.getString("dept")%>
                                                     </td>
                                                 </tr>
                                             <% 

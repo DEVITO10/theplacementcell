@@ -2,7 +2,7 @@
 <%@page import="javax.servlet.http.HttpSession"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-    if((String)session.getAttribute("adminuname")==null){
+    if((String)session.getAttribute("studuname")==null){
         %><jsp:forward page="studentLogin.jsp" /><%
     }
 %>
@@ -12,7 +12,7 @@
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="tpcDaoImplementations.dbConnectionImplementation"%>
-<%@page import="tpcInterfaces.AdminSQLQuery"%>
+<%@page import="tpcInterfaces.StudentSQLQuery"%>
 <%@page import="javax.servlet.http.HttpServletRequest"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +20,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Admin Dashboard</title>
+        <title>Student Dashboard</title>
         <link type="text/css" href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
         <link type="text/css" href="css/theme.css" rel="stylesheet">
@@ -35,45 +35,41 @@
     </head>
     <body>
         
-        <%@ include file="includes/adminDashboardHeader.jsp" %>
+        <%@ include file="includes/studentDashboardHeader.jsp" %>
         
-        <%
-            try{
-                    Connection connection=null;
-                    connection =  dbConnectionImplementation.getConnection();
-                    PreparedStatement preparedStatement=connection.prepareStatement(AdminSQLQuery.getAdminNameQuery);
-                    preparedStatement.setString(1, (String)session.getAttribute("adminuname"));
-                    ResultSet resultSet = null;
-                    resultSet = preparedStatement.executeQuery();
-                    while(resultSet.next()){
-        %>
         
-        <div class="wrapper" style="background-color: #EEEEEE;">
+        
+        <div class="wrapper" style="background-color: #EEEEEE; min-height: 500px">
             <div class="container">
                 <div class="row">
                     <div class="span3">
                         <div class="sidebar">
                             <ul class="widget widget-menu unstyled">
                                 <li><a href="#"><i class="menu-icon icon-dashboard"></i>Dashboard</a></li>
-                                <li><a href="adminCompanyDashboard.jsp"><i class="menu-icon icon-building"></i>Companies</a></li>
-                                <li><a href="adminShowStudents.jsp">&nbsp;<i class="menu-icon"><i class="fa fa-user-graduate"></i></i>Students</a></li>
-                                <li><a href="adminShowTeachers.jsp"><i class="menu-icon"><i class="fa fa-chalkboard-teacher"></i></i>Teachers</a></li>
-                                <li><a href="adminProfile.jsp"><i class="menu-icon icon-user"></i>My Profile</a></li>
+                                <li><a href="studentCompanyDashboard.jsp"><i class="menu-icon icon-building"></i>Companies</a></li>
+                                <li><a href="studentProfile.jsp"><i class="menu-icon icon-user"></i>My Profile</a></li>
                             </ul>
                             <!--/.widget-nav-->
                         </div>
                         <!--/.sidebar-->
                     </div>
                     <!--/.span3-->
+                    <%
+                        try{
+                                Connection connection=null;
+                                connection =  dbConnectionImplementation.getConnection();
+                                PreparedStatement preparedStatement=connection.prepareStatement(StudentSQLQuery.getStudentNameQuery);
+                                preparedStatement.setString(1, (String)session.getAttribute("studuname"));
+                                ResultSet resultSet = null;
+                                resultSet = preparedStatement.executeQuery();
+                                while(resultSet.next()){
+                    %>
                     <div class="span9">
                         <div class="content">
                             <div class="btn-controls">
                                 <div class="btn-box-row row-fluid">
-                                    <a href="adminProfile.jsp" class="btn-box big span6"><i class="icon-user"></i><b style="color:red"><%= resultSet.getString("name") %></b><p class="text-muted">My Profile</p></a>
-                                    <a href="adminCompanyDashboard.jsp" class="btn-box big span6"><i class="icon-building"></i><b>Companies</b><p class="text-muted">Show Companies</p></a>
-                                    <a href="adminShowTeachers.jsp" class="btn-box big span6" style="margin-left: 0px;"><i class="icon-chalkboard-teacher"></i><b>Teacher</b><p class="text-muted">Show Teachers</p></a>
-                                    <a href="adminShowStudents.jsp" class="btn-box big span6"><i class="fa fa-user-graduate"></i><b>Students</b><p class="text-muted">Show Students</p>
-                                    </a>
+                                    <a href="studentProfile.jsp" class="btn-box big span6"><i class="icon-user"></i><b style="color:red"><%= resultSet.getString("name") %></b><p class="text-muted">My Profile</p></a>
+                                    <a href="studentCompanyDashboard.jsp" class="btn-box big span6"><i class="icon-building"></i><b>Companies</b><p class="text-muted">Show Companies</p></a>
                                 </div>
                             </div>
                             <!--/#btn-controls-->
@@ -81,18 +77,19 @@
                         <!--/.content-->
                     </div>
                     <!--/.span9-->
+                    <% 
+                                }
+                        } 
+                        catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    %>
                 </div>
             </div>
             <!--/.container-->
         </div>
         <!--/.wrapper-->
-        <% 
-                    }
-            } 
-            catch (Exception e) {
-                e.printStackTrace();
-            }
-        %>
+        
         
         <%@ include file="includes/adminDashboardFooter.jsp" %>
         

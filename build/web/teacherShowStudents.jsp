@@ -2,8 +2,8 @@
 <%@page import="javax.servlet.http.HttpSession"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-    if((String)session.getAttribute("adminuname")==null){
-        %><jsp:forward page="adminLogin.jsp" /><%
+    if((String)session.getAttribute("teachuname")==null){
+        %><jsp:forward page="teacherLogin.jsp" /><%
     }
 %>
 <%@page import="java.sql.PreparedStatement"%>
@@ -12,7 +12,7 @@
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="tpcDaoImplementations.dbConnectionImplementation"%>
-<%@page import="tpcInterfaces.AdminSQLQuery"%>
+<%@page import="tpcInterfaces.TeacherSQLQuery"%>
 <%@page import="javax.servlet.http.HttpServletRequest"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +20,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Show Students - Admin
+        <title>Show Students - Teacher
         </title>
         <link type="text/css" href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
@@ -36,7 +36,7 @@
     </head>
     <body>
         
-        <%@ include file="includes/adminDashboardHeader.jsp" %>
+        <%@ include file="includes/teacherDashboardHeader.jsp" %>
         
         
         
@@ -46,11 +46,10 @@
                     <div class="span3">
                         <div class="sidebar">
                             <ul class="widget widget-menu unstyled">
-                                <li><a href="adminDashboard.jsp"><i class="menu-icon icon-dashboard"></i>Dashboard</a></li>
-                                <li><a href="adminCompanyDashboard.jsp"><i class="menu-icon icon-building"></i>Companies</a></li>
+                                <li><a href="teacherDashboard.jsp"><i class="menu-icon icon-dashboard"></i>Dashboard</a></li>
+                                <li><a href="teacherShowCompany.jsp"><i class="menu-icon icon-building"></i>Companies</a></li>
                                 <li><a href="#">&nbsp;<i class="menu-icon"><i class="fa fa-user-graduate"></i></i>Students</a></li>
-                                <li><a href="adminShowTeachers.jsp"><i class="menu-icon"><i class="fa fa-chalkboard-teacher"></i></i>Teachers</a></li>
-                                <li><a href="adminProfile.jsp"><i class="menu-icon icon-user"></i>My Profile</a></li>
+                                <li><a href="teacherProfile.jsp"><i class="menu-icon icon-user"></i>My Profile</a></li>
                             </ul>
                             <!--/.widget-nav-->
                         </div>
@@ -87,7 +86,7 @@
                                                 try{
                                                         Connection connection=null;
                                                         connection =  dbConnectionImplementation.getConnection();
-                                                        PreparedStatement preparedStatement=connection.prepareStatement(AdminSQLQuery.showAllStudents);
+                                                        PreparedStatement preparedStatement=connection.prepareStatement(TeacherSQLQuery.showAllStudents);
                                                         ResultSet resultSet = null;
                                                         resultSet = preparedStatement.executeQuery();
                                                         while(resultSet.next()){

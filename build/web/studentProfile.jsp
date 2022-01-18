@@ -2,8 +2,8 @@
 <%@page import="javax.servlet.http.HttpSession"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-    if((String)session.getAttribute("adminuname")==null){
-        %><jsp:forward page="adminLogin.jsp" /><%
+    if((String)session.getAttribute("studuname")==null){
+        %><jsp:forward page="studentLogin.jsp" /><%
     }
 %>
 <%@page import="java.sql.PreparedStatement"%>
@@ -12,7 +12,7 @@
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="tpcDaoImplementations.dbConnectionImplementation"%>
-<%@page import="tpcInterfaces.AdminSQLQuery"%>
+<%@page import="tpcInterfaces.StudentSQLQuery"%>
 <%@page import="javax.servlet.http.HttpServletRequest"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +20,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>My Profile - Admin</title>
+        <title>My Profile - Student</title>
         <link type="text/css" href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
         <link type="text/css" href="css/theme.css" rel="stylesheet">
@@ -35,20 +35,16 @@
     </head>
     <body>
         
-        <%@ include file="includes/adminDashboardHeader.jsp" %>
+        <%@ include file="includes/studentDashboardHeader.jsp" %>
         
-        
-        
-        <div class="wrapper" style="background-color: #EEEEEE; min-height: 500px">
+        <div class="wrapper" style="background-color: #EEEEEE;">
             <div class="container">
                 <div class="row">
                     <div class="span3">
                         <div class="sidebar">
                             <ul class="widget widget-menu unstyled">
-                                <li><a href="adminDashboard.jsp"><i class="menu-icon icon-dashboard"></i>Dashboard</a></li>
-                                <li><a href="adminCompanyDashboard.jsp"><i class="menu-icon icon-building"></i>Companies</a></li>
-                                <li><a href="adminShowStudents.jsp">&nbsp;<i class="menu-icon"><i class="fa fa-user-graduate"></i></i>Students</a></li>
-                                <li><a href="adminShowTeachers.jsp"><i class="menu-icon"><i class="fa fa-chalkboard-teacher"></i></i>Teachers</a></li>
+                                <li><a href="studentDashboard.jsp"><i class="menu-icon icon-dashboard"></i>Dashboard</a></li>
+                                <li><a href="studentCompanyDashboard.jsp"><i class="menu-icon icon-building"></i>Companies</a></li>
                                 <li><a href="#"><i class="menu-icon icon-user"></i>My Profile</a></li>
                             </ul>
                             <!--/.widget-nav-->
@@ -56,13 +52,12 @@
                         <!--/.sidebar-->
                     </div>
                     <!--/.span3-->
-
                     <%
                         try{
                                 Connection connection=null;
                                 connection =  dbConnectionImplementation.getConnection();
-                                PreparedStatement preparedStatement=connection.prepareStatement(AdminSQLQuery.getAdminDetails);
-                                preparedStatement.setString(1, (String)session.getAttribute("adminuname"));
+                                PreparedStatement preparedStatement=connection.prepareStatement(StudentSQLQuery.getStudentDetails);
+                                preparedStatement.setString(1, (String)session.getAttribute("studuname"));
                                 ResultSet resultSet = null;
                                 resultSet = preparedStatement.executeQuery();
                                 while(resultSet.next()){
@@ -76,10 +71,18 @@
                                 <div class="module-body">
                                     <label>Name</label>
                                     <h2><%= resultSet.getString("name")%></h2>
+                                    <label>Roll Number</label>
+                                    <h2><%= resultSet.getString("roll")%></h2>
                                     <label>Email Address</label>
                                     <h2><%= resultSet.getString("email")%></h2>
                                     <label>Contact No.</label>
                                     <h2><%= resultSet.getString("phno")%></h2>
+                                    <label>Department</label>
+                                    <h2><%= resultSet.getString("dept")%></h2>
+                                    <label>Passing Year</label>
+                                    <h2><%= resultSet.getString("passyear")%></h2>
+                                    <label>Current CGPA</label>
+                                    <h2><%= resultSet.getString("curr_cgpa")%></h2>
                                     <label>Address</label>
                                     <h2><%= resultSet.getString("address")%></h2>
                                 </div>
@@ -99,7 +102,6 @@
             <!--/.container-->
         </div>
         <!--/.wrapper-->
-        
         
         <%@ include file="includes/adminDashboardFooter.jsp" %>
         

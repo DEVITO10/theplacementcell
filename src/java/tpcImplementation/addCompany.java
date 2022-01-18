@@ -17,11 +17,11 @@ public class addCompany {
             preparedStatement.setString(1, comp.getName());
             preparedStatement.setString(2, comp.getJob_desc());
             preparedStatement.setString(3, comp.getLogo_link());
-            preparedStatement.setString(4, comp.getExam_name());
-            preparedStatement.setString(5, comp.getC_package());
-            preparedStatement.setString(6, comp.getBranch());
+            preparedStatement.setString(4, comp.getC_package());
+            preparedStatement.setString(5, comp.getBranch());
             preparedStatement.executeUpdate();
             status = true;        
+            System.out.println("added");
         }
         catch(Exception e){
             e.printStackTrace();

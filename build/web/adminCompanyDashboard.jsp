@@ -38,7 +38,7 @@
         
         <%@ include file="includes/adminDashboardHeader.jsp" %>
         
-        <div class="wrapper" style="background-color: #EEEEEE;">
+        <div class="wrapper" style="background-color: #EEEEEE; min-height: 500px;">
             <div class="container">
                 <div class="row">
                     <div class="span3">

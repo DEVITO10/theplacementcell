@@ -79,6 +79,7 @@
                                             <tr>
                                                 <th>Name</th>
                                                 <th>Email Address</th>
+                                                <th>Department</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -97,6 +98,9 @@
                                                     </td>
                                                     <td>
                                                         <%= resultSet.getString("email")%>
+                                                    </td>
+                                                    <td>
+                                                        <%= resultSet.getString("dept")%>
                                                     </td>
                                                 </tr>
                                             <% 

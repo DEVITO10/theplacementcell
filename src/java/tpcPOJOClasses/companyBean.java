@@ -3,7 +3,6 @@ package tpcPOJOClasses;
 public class companyBean {
     String name = null;
     String logo_link = null;
-    String exam_name = null;
     String c_package = null;
     String branch = null;
     String job_desc = null;
@@ -22,14 +21,6 @@ public class companyBean {
 
     public void setLogo_link(String logo_link) {
         this.logo_link = logo_link;
-    }
-
-    public String getExam_name() {
-        return exam_name;
-    }
-
-    public void setExam_name(String exam_name) {
-        this.exam_name = exam_name;
     }
 
     public String getC_package() {
