@@ -62,15 +62,6 @@
                         <div class="content">
                             <div class="module">
                                 <div class="module-head">
-                                    <h1>Teacher Full Details</h1>
-                                </div>
-                                <div class="module-body">
-                                    Empty Now
-                                </div>
-                            </div>
-
-                            <div class="module">
-                                <div class="module-head">
                                     <h3>Teachers</h3>
                                 </div>
                                 <div class="module-body table">

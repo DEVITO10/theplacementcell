@@ -78,14 +78,6 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <label for="" style="font-size: large;">Company Logo (link)</label>
-                                                </td>
-                                                <td>
-                                                    <input type="text" name="comp_logo" id="" required>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
                                                     <label for="" style="font-size: large;">Package</label>
                                                 </td>
                                                 <td>

@@ -24,6 +24,10 @@
         <servlet-name>addCompanyServlet</servlet-name>
         <servlet-class>tpcServlets.addCompanyServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>applyCompanyServlet</servlet-name>
+        <servlet-class>tpcServlets.applyCompanyServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>studentLoginServlet</servlet-name>
         <url-pattern>/studentLoginServlet</url-pattern>
@@ -47,6 +51,10 @@
     <servlet-mapping>
         <servlet-name>addCompanyServlet</servlet-name>
         <url-pattern>/addCompanyServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>applyCompanyServlet</servlet-name>
+        <url-pattern>/applyCompanyServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

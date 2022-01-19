@@ -62,15 +62,6 @@
                         <div class="content">
                             <div class="module">
                                 <div class="module-head">
-                                    <h1>Student Full Details</h1>
-                                </div>
-                                <div class="module-body">
-                                    Under building...access after some time;
-                                </div>
-                            </div>
-
-                            <div class="module">
-                                <div class="module-head">
                                     <h3>Student</h3>
                                 </div>
                                 <div class="module-body table">

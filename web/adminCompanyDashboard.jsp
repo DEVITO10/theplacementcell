@@ -75,16 +75,15 @@
                                                     while(resultSet.next() && count<4){
                                     %>
                                         <div class="span2" style="margin: 5px; border: 1px solid grey; text-align: center; padding: 2px; border-radius: 5px;">
-                                            <img src='images/Logo/logo.png' alt="company logo" height="50px" width="auto"><br>
                                             <span style="font-size: 20px;"><%= resultSet.getString("name") %></span><br>
                                             <span style="font-size: 10px;"><%= resultSet.getString("job_desc") %></span>
                                         </div>
                                     <% 
                                                         if(count == 3){
                                                             %>
-                                                            <div class="span1" style="margin: 5px; display: flex; flex-direction:column;justify-content: center; align-items: center; border: 1px solid grey; padding: 2px; border-radius: 5px">
+                                                            <a href="adminViewCompanyAll.jsp"><div class="span1" style="margin: 5px; display: flex; flex-direction:column;justify-content: center; align-items: center; border: 1px solid grey; padding: 2px; border-radius: 5px">
                                                                 <i class="icon-angle-right" style="font-size: 50px;"></i><br>View More
-                                                            </div>
+                                                                </div></a>
                                                             <%
                                                         }
                                                         count+=1;

@@ -2,8 +2,8 @@
 <%@page import="javax.servlet.http.HttpSession"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-    if((String)session.getAttribute("teachuname")==null){
-        %><jsp:forward page="teacherLogin.jsp" /><%
+    if((String)session.getAttribute("studuname")==null){
+        %><jsp:forward page="studentLogin.jsp" /><%
     }
 %>
 <%@page import="java.sql.PreparedStatement"%>
@@ -12,7 +12,7 @@
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="tpcDaoImplementations.dbConnectionImplementation"%>
-<%@page import="tpcInterfaces.AdminSQLQuery"%>
+<%@page import="tpcInterfaces.StudentSQLQuery"%>
 <%@page import="javax.servlet.http.HttpServletRequest"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,8 +20,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Show Companies - Teacher
-        </title>
+        <title>Company Dashboard - Student</title>
         <link type="text/css" href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
         <link type="text/css" href="css/theme.css" rel="stylesheet">
@@ -36,7 +35,7 @@
     </head>
     <body>
         
-        <%@ include file="includes/teacherDashboardHeader.jsp" %>
+        <%@ include file="includes/studentDashboardHeader.jsp" %>
         
         <div class="wrapper" style="background-color: #EEEEEE;">
             <div class="container">
@@ -44,30 +43,35 @@
                     <div class="span3">
                         <div class="sidebar">
                             <ul class="widget widget-menu unstyled">
-                                <li><a href="teacherDashboard.jsp"><i class="menu-icon icon-dashboard"></i>Dashboard</a></li>
-                                <li><a href="#"><i class="menu-icon icon-building"></i>Companies</a></li>
-                                <li><a href="teacherShowStudents.jsp">&nbsp;<i class="menu-icon"><i class="fa fa-user-graduate"></i></i>Students</a></li>
-                                <li><a href="teacherProfile.jsp"><i class="menu-icon icon-user"></i>My Profile</a></li>
+                                <li><a href="studentDashboard"><i class="menu-icon icon-dashboard"></i>Dashboard</a></li>
+                                <li><a href="studentCompanyDashboard.jsp"><i class="menu-icon icon-building"></i>Companies</a></li>
+                                <li><a href="studentProfile.jsp"><i class="menu-icon icon-user"></i>My Profile</a></li>
                             </ul>
                             <!--/.widget-nav-->
                         </div>
                         <!--/.sidebar-->
                     </div>
                     <!--/.span3-->
-
+                    
                     <div class="span9">
                         <div class="content">
+                            <div class="btn-controls">
+                                <div class="btn-box-row row-fluid">
+                                    <a href="#" class="btn-box big span6"><i class="icon-check"></i><b>Applied</b><p class="text-muted">Companies you have applied</p></a>
+                                    <a href="studentApplyCompany.jsp" class="btn-box big span6"><i class="icon-building"></i><b>Companies</b><p class="text-muted">All available companies</p></a>
+                                </div>
+                            </div>
+                            <!--/#btn-controls-->       
                             <div class="module">
                                 <div class="module-head">
-                                    <h1>Companies</h1>
+                                    <h1>Applied</h1>
                                 </div>
                                 <div class="module-body table">
                                     <table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table table-bordered table-striped	 display" width="100%">
                                         <thead>
                                             <tr>
-                                                <th>Name</th>
+                                                <th>Company Name</th>
                                                 <th>Job Description</th>
-                                                <th>Package</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -75,34 +79,34 @@
                                                 try{
                                                         Connection connection=null;
                                                         connection =  dbConnectionImplementation.getConnection();
-                                                        PreparedStatement preparedStatement=connection.prepareStatement(AdminSQLQuery.showCompanies);
+                                                        PreparedStatement preparedStatement=connection.prepareStatement(StudentSQLQuery.showAppliedCompanies);
+                                                        preparedStatement.setString(1, (String)session.getAttribute("studuname"));
                                                         ResultSet resultSet = null;
                                                         resultSet = preparedStatement.executeQuery();
                                                         while(resultSet.next()){
                                             %>
                                                 <tr>
                                                     <td>
-                                                        <%= resultSet.getString("name")%>
+                                                        <%= resultSet.getString("comp_name")%>
                                                     </td>
                                                     <td>
                                                         <%= resultSet.getString("job_desc")%>
-                                                    </td>
-                                                    <td>
-                                                        <%= resultSet.getString("package")%>
                                                     </td>
                                                 </tr>
                                             <% 
                                                         }
                                                 } 
-                                                catch (Exception e) {
-                                                    e.printStackTrace();
+                                                catch(Exception e){
                                                 }
                                             %>
                                         </tbody>
                                     </table>
                                 </div>
                             </div><!--/.module-->
+
+
                         </div>
+                        <!--/.content-->
                     </div>
                     <!--/.span9-->
                 </div>
@@ -110,6 +114,7 @@
             <!--/.container-->
         </div>
         <!--/.wrapper-->
+        
         
         <%@ include file="includes/adminDashboardFooter.jsp" %>
         

@@ -38,8 +38,6 @@
         
         <%@ include file="includes/teacherDashboardHeader.jsp" %>
         
-        
-        
         <div class="wrapper" style="background-color: #EEEEEE;">
             <div class="container">
                 <div class="row">
@@ -67,9 +65,9 @@
                                     <table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table table-bordered table-striped	 display" width="100%">
                                         <thead>
                                             <tr>
-                                                <th>Logo</th>
                                                 <th>Name</th>
                                                 <th>Job Description</th>
+                                                <th>Package</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -84,13 +82,13 @@
                                             %>
                                                 <tr>
                                                     <td>
-                                                        <%= resultSet.getString("logo")%>
-                                                    </td>
-                                                    <td>
                                                         <%= resultSet.getString("name")%>
                                                     </td>
                                                     <td>
                                                         <%= resultSet.getString("job_desc")%>
+                                                    </td>
+                                                    <td>
+                                                        <%= resultSet.getString("package")%>
                                                     </td>
                                                 </tr>
                                             <% 

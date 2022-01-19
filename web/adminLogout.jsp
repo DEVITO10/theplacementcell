@@ -6,6 +6,7 @@
         %><jsp:forward page="adminLogin.jsp" /><%
     }
     else{
+        session.setAttribute("adminuname",null);
         session.invalidate();
     }
 %>

@@ -68,9 +68,9 @@
                                     <table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table table-bordered table-striped	 display" width="100%">
                                         <thead>
                                             <tr>
-                                                <th>Logo</th>
                                                 <th>Name</th>
                                                 <th>Job Description</th>
+                                                <th>Salary Package</th>
                                                 <th>Remove</th>
                                             </tr>
                                         </thead>
@@ -86,13 +86,13 @@
                                             %>
                                                 <tr>
                                                     <td>
-                                                        <%= resultSet.getString("logo")%>
-                                                    </td>
-                                                    <td>
                                                         <%= resultSet.getString("name")%>
                                                     </td>
                                                     <td>
                                                         <%= resultSet.getString("job_desc")%>
+                                                    </td>
+                                                    <td>
+                                                        <%= resultSet.getString("package")%>
                                                     </td>
                                                     <td>
                                                         <a href="removeCompanyServlet?n=<%= resultSet.getString("name")%>&j=<%= resultSet.getString("job_desc")%>" style="color:red">Remove</a>

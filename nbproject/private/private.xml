@@ -2,6 +2,18 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/E:/MinorProject/theplacementcell/src/java/tpcImplementation/addCompany.java</file>
+            <file>file:/E:/MinorProject/theplacementcell/web/adminLogout.jsp</file>
+            <file>file:/E:/MinorProject/theplacementcell/src/java/tpcServlets/applyCompanyServlet.java</file>
+            <file>file:/E:/MinorProject/theplacementcell/src/java/tpcInterfaces/StudentSQLQuery.java</file>
+            <file>file:/E:/MinorProject/theplacementcell/src/java/tpcServlets/addCompanyServlet.java</file>
+            <file>file:/E:/MinorProject/theplacementcell/src/java/tpcPOJOClasses/companyBean.java</file>
+            <file>file:/E:/MinorProject/theplacementcell/src/java/tpcInterfaces/AdminSQLQuery.java</file>
+            <file>file:/E:/MinorProject/theplacementcell/src/java/tpcImplementation/applyCompany.java</file>
+            <file>file:/E:/MinorProject/theplacementcell/web/studentProfile.jsp</file>
+            <file>file:/E:/MinorProject/theplacementcell/web/studentCompanyDashboard.jsp</file>
+            <file>file:/E:/MinorProject/theplacementcell/web/studentDashboard.jsp</file>
+        </group>
     </open-files>
 </project-private>
