@@ -85,6 +85,8 @@
                                     <h2><%= resultSet.getString("curr_cgpa")%></h2>
                                     <label>Address</label>
                                     <h2><%= resultSet.getString("address")%></h2>
+                                    <label>Placement Status</label>
+                                    <h2><%= resultSet.getString("status")%></h2>
                                 </div>
                             </div>
                         </div>
