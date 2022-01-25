@@ -18,6 +18,7 @@ public class addCompany {
             preparedStatement.setString(2, comp.getJob_desc());
             preparedStatement.setString(3, comp.getC_package());
             preparedStatement.setString(4, comp.getBranch());
+            preparedStatement.setString(5, comp.getLast_date());
             preparedStatement.executeUpdate();
             status = true;
         }

@@ -101,6 +101,14 @@
                                                 </td>
                                             </tr>
                                             <tr>
+                                                <td>
+                                                    <label for="" style="font-size: large;">Last Apply Date</label>
+                                                </td>
+                                                <td>
+                                                    <input type="date" name="comp_last_date" id="" required>
+                                                </td>
+                                            </tr>
+                                            <tr>
                                                 <td colspan="2"><input type="submit" value="Submit"></td>
                                             </tr>
                                             <tr>

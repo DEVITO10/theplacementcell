@@ -1,10 +1,21 @@
 package tpcPOJOClasses;
 
+import java.sql.Date;
+
 public class companyBean {
     String name = null;
     String c_package = null;
     String branch = null;
     String job_desc = null;
+    String last_date = null;
+
+    public String getLast_date() {
+        return last_date;
+    }
+
+    public void setLast_date(String last_date) {
+        this.last_date = last_date;
+    }
 
     public String getName() {
         return name;

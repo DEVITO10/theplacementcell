@@ -71,6 +71,7 @@
                                                 <th>Name</th>
                                                 <th>Job Description</th>
                                                 <th>Salary Package</th>
+                                                <th>Last Date to Apply</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -92,6 +93,9 @@
                                                     </td>
                                                     <td>
                                                         <%= resultSet.getString("package")%>
+                                                    </td>
+                                                    <td>
+                                                        <%= resultSet.getString("lastdate")%>
                                                     </td>
                                                 </tr>
                                             <% 

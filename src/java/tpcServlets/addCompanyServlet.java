@@ -18,11 +18,14 @@ public class addCompanyServlet extends HttpServlet {
         String cpackage = request.getParameter("comp_package");
         String branch = request.getParameter("comp_branch");
         String jobdesc = request.getParameter("comp_job_desc");
+        String lastdate = request.getParameter("comp_last_date");
+        System.out.println(lastdate.getClass());
         companyBean comp = new companyBean();
         comp.setName(name);
         comp.setC_package(cpackage);
         comp.setBranch(branch);
         comp.setJob_desc(jobdesc);
+        comp.setLast_date(lastdate);
         try{
             if(adcmp.add(comp)) {
                 response.sendRedirect("adminAddCmpSuccess.jsp");
